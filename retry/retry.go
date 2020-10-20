@@ -31,7 +31,7 @@ func (r *Retryer) On(method func() error) error {
 	return ErrRetryFailed
 }
 
-func NewFixedIntervelRetryer(times int, delay uint32) *Retryer {
+func NewFixedIntervalRetryer(times int, delay uint32) *Retryer {
 	return &Retryer{
 		totalRetryTimes: times,
 		nextDelay: func() uint32 {
@@ -40,7 +40,7 @@ func NewFixedIntervelRetryer(times int, delay uint32) *Retryer {
 	}
 }
 
-func NewProgressiveIntervelRetryer(times int, delay uint32) *Retryer {
+func NewProgressiveIntervalRetryer(times int, delay uint32) *Retryer {
 	next := delay
 
 	return &Retryer{
